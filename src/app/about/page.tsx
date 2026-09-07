@@ -23,8 +23,8 @@ export default function AboutPage() {
       </section>
       <div className="relative h-[72vh] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=80"
-          alt="New Zealand landscape"
+          src="/images/data-centre.jpg"
+          alt="OurCloud New Zealand data centre"
           fill
           sizes="100vw"
           className="object-cover animate-ken-slow"
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <h2 className="h2">Our story</h2>
         <div>
           <p className="lede">
-            From our own New Zealand data centre to our team of technical specialists and consultants, we bring infrastructure, cloud, connectivity, security and support together under one roof.
+            From our own New Zealand data centre to our team of technical specialists and consultants, we bring infrastructure, cloud, connectivity, Sophos and support together under one roof.
           </p>
           <p className="lede mt-4">
             We believe technology should work for your business — not become another problem for your team to manage.

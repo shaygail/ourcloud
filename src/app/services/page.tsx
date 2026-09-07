@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { dataCentreNotes, services } from "@/lib/data";
+import { capabilityIcons, dataCentreNotes, services } from "@/lib/data";
 
 export default function ServicesPage() {
   return (
@@ -9,11 +10,34 @@ export default function ServicesPage() {
           Your IT. <span className="gold">One partner.</span>
         </h1>
         <p className="lede mt-6">
-          Managed IT, cloud, data centre infrastructure, cybersecurity, backup, connectivity, communications and consulting — brought together so you are not juggling disconnected providers.
+          Managed IT, cloud, data centre infrastructure, Sophos, backup, connectivity, communications and consulting — brought together so you are not juggling disconnected providers.
         </p>
         <Link className="link-arrow" href="/start">
-          Talk to OurCloud <span className="arrows">→ →</span>
+          Talk to OurCloud <span className="arrows">→</span>
         </Link>
+      </section>
+
+      <section className="px-[var(--pad)] pb-8">
+        <div className="grid grid-cols-3 gap-4 border-t border-[var(--line)] py-12 sm:grid-cols-4 md:grid-cols-6">
+          {capabilityIcons.map((item) => (
+            <Link
+              key={item.src}
+              href={item.href}
+              className="group grid justify-items-center gap-2 text-center"
+            >
+              <Image
+                src={item.src}
+                alt=""
+                width={72}
+                height={72}
+                className="h-[72px] w-[72px] object-contain transition duration-300 group-hover:scale-105"
+              />
+              <span className="text-[0.78rem] font-medium tracking-tightish text-[var(--fg-soft)] group-hover:text-[var(--fg)]">
+                {item.label}
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="px-[var(--pad)] pb-8">
@@ -32,7 +56,27 @@ export default function ServicesPage() {
             id={item.slug}
             className="grid gap-8 border-t border-[var(--line)] py-12 md:grid-cols-[0.9fr_1.1fr]"
           >
-            <h2 className="h2">{item.title}</h2>
+            <div className="flex flex-col gap-5">
+              <Image
+                src={item.icon}
+                alt=""
+                width={88}
+                height={88}
+                className="h-[88px] w-[88px] object-contain"
+              />
+              <h2 className="h2">{item.title}</h2>
+              {item.slug === "data-centre" ? (
+                <div className="relative mt-2 aspect-[4/3] w-full max-w-[420px] overflow-hidden">
+                  <Image
+                    src="/images/data-centre.jpg"
+                    alt="OurCloud New Zealand data centre server racks"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 420px"
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
+            </div>
             <div>
               <p className="lede">{item.short}</p>
               <p className="lede mt-4">{item.body}</p>

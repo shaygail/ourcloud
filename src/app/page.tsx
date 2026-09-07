@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
+  capabilityIcons,
   cases,
   clients,
   heroSlides,
@@ -47,7 +48,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 max-w-[18ch] pb-[clamp(2.5rem,8vh,5.5rem)] pad-x">
-          <h1 className="display">
+          <h1 className="display display-home">
             Connecting{" "}
             <span className="gold">
               <span className="cycle">
@@ -106,7 +107,7 @@ export default function HomePage() {
         <h2 className="h2">Your IT. One partner.</h2>
         <div>
           <p className="lede">
-            OurCloud brings IT support, cloud, infrastructure, cybersecurity, connectivity, backup and consulting into one relationship — so you are not managing a stack of disconnected technology providers.
+            OurCloud brings IT support, cloud, infrastructure, Sophos, connectivity, backup and consulting into one relationship — so you are not managing a stack of disconnected technology providers.
           </p>
           <Link className="link-arrow" href="/about">
             Why OurCloud <span className="arrows">→ →</span>
@@ -128,11 +129,34 @@ export default function HomePage() {
         <h2 className="h2">More than a helpdesk</h2>
         <div>
           <p className="lede">
-            New Zealand-owned technology, infrastructure and support — all working together. From everyday IT through to data centre hosting, security and consulting.
+            New Zealand-owned technology, infrastructure and support — all working together. From everyday IT through to data centre hosting, Sophos and consulting.
           </p>
           <Link className="link-arrow" href="/services">
             Explore our services <span className="arrows">→ →</span>
           </Link>
+        </div>
+      </section>
+
+      <section className="px-[var(--pad)] pb-[clamp(3rem,8vw,5rem)]">
+        <div className="grid grid-cols-3 gap-4 border-y border-[var(--line)] py-10 sm:grid-cols-4 md:grid-cols-6">
+          {capabilityIcons.map((item) => (
+            <Link
+              key={item.src}
+              href={item.href}
+              className="group grid justify-items-center gap-2 text-center"
+            >
+              <Image
+                src={item.src}
+                alt=""
+                width={64}
+                height={64}
+                className="h-16 w-16 object-contain transition duration-300 group-hover:scale-105"
+              />
+              <span className="text-[0.72rem] font-medium tracking-tightish text-[var(--fg-soft)] group-hover:text-[var(--fg)]">
+                {item.label}
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

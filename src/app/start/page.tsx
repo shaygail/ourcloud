@@ -26,7 +26,7 @@ export default function StartPage() {
           Let’s talk about your <span className="gold">IT.</span>
         </h1>
         <p className="lede mt-6">
-          Whether you are looking for a new IT partner, moving infrastructure to the cloud, improving security, or simply need someone to take ownership of your technology, our team can help you work out where to start.
+          Whether you are looking for a new IT partner, moving infrastructure to the cloud, adding Sophos protection, or simply need someone to take ownership of your technology, our team can help you work out where to start.
         </p>
       </section>
       <section className="section split">
@@ -58,7 +58,7 @@ export default function StartPage() {
                 <option value="managed-it">Managed IT</option>
                 <option value="cloud">Cloud & hosting</option>
                 <option value="data-centre">Data centre</option>
-                <option value="security">Cybersecurity</option>
+                <option value="sophos">Sophos</option>
                 <option value="consulting">Consulting</option>
                 <option value="other">Something else</option>
               </select>

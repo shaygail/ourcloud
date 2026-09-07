@@ -10,7 +10,7 @@ export default function InsightsPage() {
           OurCloud <span className="gold">Insights</span>
         </h1>
         <p className="lede mt-6">
-          Practical answers for business owners and leaders — cyber security, cloud, infrastructure, Microsoft 365, connectivity and OurCloud news.
+          Practical answers for business owners and leaders — cloud, infrastructure, Microsoft 365, connectivity and OurCloud news.
         </p>
       </section>
       <section className="px-[var(--pad)] pb-4">

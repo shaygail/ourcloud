@@ -7,7 +7,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "OurCloud | One technology partner for your business",
   description:
-    "New Zealand-owned technology, infrastructure and support. Managed IT, cloud, data centre, cybersecurity, connectivity and consulting — working together.",
+    "New Zealand-owned technology, infrastructure and support. Managed IT, cloud, data centre, Sophos, connectivity and consulting — working together.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

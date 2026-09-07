@@ -28,7 +28,24 @@ export type Service = {
   whyUs: string;
   cta: string;
   ctaHref: string;
+  icon: string;
 };
+
+/** Brand capability icons (yellow-on-black) for services and overview strips. */
+export const capabilityIcons = [
+  { label: "Cloud & Hosting", src: "/icons/cloud-hosting.png", href: "/services#cloud-hosting" },
+  { label: "Data Centre", src: "/icons/data-centre.png", href: "/services#data-centre" },
+  { label: "File Server", src: "/icons/file-server.png", href: "/services#cloud-hosting" },
+  { label: "Remote Desktop", src: "/icons/remote-desktop.png", href: "/services#cloud-hosting" },
+  { label: "Web Hosting", src: "/icons/web-hosting.png", href: "/services#cloud-hosting" },
+  { label: "Email", src: "/icons/email.png", href: "/services#managed-it" },
+  { label: "Hosted Email", src: "/icons/email-hosted.png", href: "/services#managed-it" },
+  { label: "Sophos", src: "/icons/security.png", href: "/services#sophos" },
+  { label: "Connectivity", src: "/icons/faster-internet.png", href: "/services#connectivity" },
+  { label: "WAN", src: "/icons/wan.png", href: "/services#connectivity" },
+  { label: "VoIP", src: "/icons/voip.png", href: "/services#communications" },
+  { label: "Backup", src: "/icons/small-data-centre.png", href: "/services#backup-dr" },
+] as const;
 
 export type Insight = {
   slug: string;
@@ -57,48 +74,42 @@ export const supportNote = "Engineers on call outside office hours. [VERIFY SUPP
 
 export const heroSlides: HeroSlide[] = [
   {
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2000&q=80",
+    image: "/images/nakicloud-desk.jpg",
     industry: "businesses",
     audience: "one partner.",
     caption: "Hughson & Associates",
     href: "/work/hughson",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=80",
-    industry: "teams",
-    audience: "local support.",
-    caption: "PIHMS",
-    href: "/work/pihms",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80",
+    image: "/images/data-centre.jpg",
     industry: "systems",
     audience: "NZ infrastructure.",
     caption: "Explore our Data Centre",
     href: "/services#data-centre",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80",
+    image: "/images/speedster.jpg",
+    industry: "teams",
+    audience: "fast connectivity.",
+    caption: "Explore Connectivity",
+    href: "/services#connectivity",
+  },
+  {
+    image: "/images/nakicloud-tablet.jpg",
     industry: "organisations",
     audience: "clear advice.",
     caption: "Taranaki Chamber",
     href: "/work/chamber",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2000&q=80",
+    image: "/images/switches-detail.jpg",
     industry: "retailers",
     audience: "dependable IT.",
     caption: "The Hive",
     href: "/work/hive",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=2000&q=80",
+    image: "/images/nakicloud-tablet-2.jpg",
     industry: "growing firms",
     audience: "technology strategy.",
     caption: "Explore Consulting",
@@ -107,11 +118,11 @@ export const heroSlides: HeroSlide[] = [
 ];
 
 export const thriveImages = [
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1800&q=80",
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80",
-  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=80",
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1800&q=80",
-  "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80",
+  "/images/data-centre.jpg",
+  "/images/switches.jpg",
+  "/images/nakicloud-desk.jpg",
+  "/images/switches-detail.jpg",
+  "/images/speedster.jpg",
 ];
 
 export const thriveVerbs = ["host", "protect", "connect", "support", "advise"] as const;
@@ -137,30 +148,27 @@ export const homePillars = [
   {
     title: "Your IT team, without the overhead",
     body: "Keep your people productive with IT support, Microsoft 365, device and network management handled by one local team — from everyday issues through to longer-term technology planning.",
-    image:
-      "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1600&q=80",
-    alt: "Technology specialist at work",
+    image: "/images/nakicloud-desk.jpg",
+    alt: "OurCloud technology workspace",
     href: "/services#managed-it",
     cta: "Explore Managed IT",
   },
   {
     title: "Infrastructure you can rely on, right here in New Zealand",
     body: "Move critical systems into a professionally managed environment backed by OurCloud’s own New Zealand data centre — private cloud, hosting, storage, backup and recovery without running the racks yourself.",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
-    alt: "Data centre infrastructure",
+    image: "/images/data-centre.jpg",
+    alt: "OurCloud New Zealand data centre server racks",
     href: "/services#data-centre",
     cta: "Explore our Data Centre",
     reverse: true,
   },
   {
-    title: "Security built into the environment",
-    body: "Protect your people, devices, accounts, email, data and infrastructure. Security isn’t a single product — it’s part of how your technology is designed, managed and supported.",
-    image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=80",
-    alt: "Secure business technology",
-    href: "/services#cybersecurity",
-    cta: "Explore Cybersecurity",
+    title: "Sophos protection for your devices and network",
+    body: "OurCloud provides Sophos endpoint and network protection as part of your managed IT environment — so security tooling sits with the same team who support your systems day to day.",
+    image: "/images/switches-detail.jpg",
+    alt: "Managed network infrastructure",
+    href: "/services#sophos",
+    cta: "Explore Sophos",
   },
 ] as const;
 
@@ -183,6 +191,7 @@ export const services: Service[] = [
       "New Zealand-owned, local technical expertise, and the same partner who can also host, secure and connect your environment.",
     cta: "Explore Managed IT",
     ctaHref: "/start",
+    icon: "/icons/remote-desktop.png",
   },
   {
     slug: "cloud-hosting",
@@ -201,6 +210,7 @@ export const services: Service[] = [
       "Cloud and hosting sit on OurCloud’s own NZ data centre foundation — not a disconnected third-party relationship.",
     cta: "Explore Cloud & Hosting",
     ctaHref: "/start",
+    icon: "/icons/cloud-hosting.png",
   },
   {
     slug: "data-centre",
@@ -221,25 +231,24 @@ export const services: Service[] = [
       "Own NZ infrastructure, local people, and services designed around that platform — not a helpdesk bolted onto someone else’s racks.",
     cta: "Explore our Data Centre",
     ctaHref: "/start",
+    icon: "/icons/data-centre.png",
   },
   {
-    slug: "cybersecurity",
-    title: "Cybersecurity",
-    short: "Protect your people, devices, accounts and data with security built into your IT environment.",
-    body: "Security isn’t a single product. It’s part of how your technology environment is designed, managed and supported — covering people, devices, accounts, email, data and infrastructure.",
+    slug: "sophos",
+    title: "Sophos",
+    short: "Endpoint and network protection with Sophos, managed alongside your wider OurCloud IT environment.",
+    body: "OurCloud provides Sophos protection for businesses that need dependable endpoint and network security — installed, managed and supported by the same local team looking after your IT.",
     provides: [
-      "Endpoint protection",
-      "Email security",
-      "Identity and access protection",
-      "Security monitoring",
-      "Cybersecurity consulting",
-      "Backup",
-      "Disaster recovery",
+      "Sophos endpoint protection",
+      "Sophos network protection",
+      "Deployment and ongoing management",
+      "Support as part of managed IT",
     ],
     whyUs:
-      "Security sits alongside managed IT, cloud and recovery planning with one New Zealand partner — without unsupported “100% secure” claims.",
-    cta: "Explore Cybersecurity",
+      "Sophos sits with your managed IT and infrastructure under one New Zealand partner — not a separate security vendor bolted on the side.",
+    cta: "Explore Sophos",
     ctaHref: "/start",
+    icon: "/icons/security.png",
   },
   {
     slug: "backup-dr",
@@ -258,6 +267,7 @@ export const services: Service[] = [
       "Recovery planning connected to the same infrastructure and support team that runs your environment day to day.",
     cta: "Talk to an expert",
     ctaHref: "/start",
+    icon: "/icons/small-data-centre.png",
   },
   {
     slug: "connectivity",
@@ -275,6 +285,7 @@ export const services: Service[] = [
       "Connectivity that works with your wider OurCloud environment — cloud, communications and support in one relationship.",
     cta: "Talk to OurCloud",
     ctaHref: "/start",
+    icon: "/icons/faster-internet.png",
   },
   {
     slug: "communications",
@@ -285,6 +296,7 @@ export const services: Service[] = [
     whyUs: "Voice that sits with your IT, connectivity and support under one New Zealand partner.",
     cta: "Talk to OurCloud",
     ctaHref: "/start",
+    icon: "/icons/voip.png",
   },
   {
     slug: "consulting",
@@ -300,9 +312,10 @@ export const services: Service[] = [
       "Fractional IT leadership",
     ],
     whyUs:
-      "Advice from a team that also runs infrastructure, cloud, security and support — strategy connected to delivery.",
+      "Advice from a team that also runs infrastructure, cloud, Sophos and support — strategy connected to delivery.",
     cta: "Book a consultation",
     ctaHref: "/start",
+    icon: "/icons/web-hosting.png",
   },
 ];
 
@@ -370,7 +383,7 @@ export const cases: CaseStudy[] = [
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
     summary:
       "A retail business wanted technology that matched how the shop actually runs: backups, antivirus and a team they could talk to, brought together on one monthly invoice.",
-    tags: ["Managed IT", "Cybersecurity", "Backup"],
+    tags: ["Managed IT", "Sophos", "Backup"],
     quote:
       "Having a great group of people to talk to and then implement what I need onto one monthly invoice has been a game changer.",
     person: "Clair Marshall, Owner",
@@ -393,7 +406,7 @@ export const stats = [
   {
     value: "1",
     label: "technology partner",
-    note: "IT, cloud, security, connectivity and infrastructure together",
+    note: "IT, cloud, Sophos, connectivity and infrastructure together",
   },
   {
     value: "Own",
@@ -434,7 +447,7 @@ export const values = [
   {
     kicker: "Your IT. One partner.",
     title: "One technology partner",
-    body: "IT support, cloud, cybersecurity, connectivity, backup and consulting through one relationship — not a stack of disconnected providers.",
+    body: "IT support, cloud, Sophos, connectivity, backup and consulting through one relationship — not a stack of disconnected providers.",
   },
   {
     kicker: "Local people, local knowledge",
@@ -449,7 +462,7 @@ export const values = [
   {
     kicker: "From tickets to strategy",
     title: "End-to-end capability",
-    body: "Support that ranges from everyday IT issues through to infrastructure, security and strategic consulting.",
+    body: "Support that ranges from everyday IT issues through to infrastructure, Sophos and strategic consulting.",
   },
 ];
 
@@ -481,28 +494,27 @@ export const insights: Insight[] = [
     body: [
       "IT sprawl rarely starts with a grand plan. It starts with a good deal on broadband, a leftover phone system, and a server under someone’s desk.",
       "When those pieces report to different companies, gaps appear between support, security, backup and connectivity.",
-      "OurCloud’s positioning is simple: one technology partner for your business — bringing IT support, cloud, infrastructure, cybersecurity, connectivity and consulting into one relationship.",
+      "OurCloud’s positioning is simple: one technology partner for your business — bringing IT support, cloud, infrastructure, Sophos, connectivity and consulting into one relationship.",
     ],
   },
   {
     slug: "prepared-for-cyber-incident",
     title: "How prepared is your business for a cyber incident?",
     date: "18 May 2026",
-    category: "Cyber Security",
+    category: "Business IT",
     image:
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80",
     excerpt:
-      "Security isn’t a single product. It’s how people, devices, accounts, email, data and infrastructure are designed and supported together.",
+      "Protection, backup and a partner who knows your environment matter more than a stack of disconnected security tools.",
     body: [
       "A cyber incident is not only a technical event. It is a business continuity event — can people still work, can you restore systems, and who is coordinating the response?",
-      "Endpoint protection, email security, identity controls, monitoring, backup and recovery planning all matter. So does having a partner who already knows your environment.",
-      "OurCloud does not claim systems are unhackable or “100% secure”. We help businesses build security into everyday IT management and recovery planning. [VERIFY WITH OURCLOUD before publishing product names or certifications.]",
+      "OurCloud provides Sophos endpoint and network protection as part of managed IT, alongside backup and recovery planning with a partner who already knows your environment.",
+      "OurCloud does not claim systems are unhackable or “100% secure”. We help businesses keep protection and recovery connected to everyday IT support.",
     ],
   },
 ];
 
 export const insightCategories = [
-  "Cyber Security",
   "Cloud",
   "Infrastructure",
   "Business IT",
