@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { LoadingScreen, loaderBootScript } from "@/components/LoadingScreen";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -21,6 +22,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body>
+        <LoadingScreen />
+        <script dangerouslySetInnerHTML={{ __html: loaderBootScript }} />
         <ThemeProvider>
           <a
             href="#main"
