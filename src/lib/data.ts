@@ -31,20 +31,20 @@ export type Service = {
   icon: string;
 };
 
-/** Brand capability icons (yellow-on-black) for services and overview strips. */
+/** Brand capability icons from Figma (yellow line icons) for services and overview strips. */
 export const capabilityIcons = [
-  { label: "Cloud & Hosting", src: "/icons/cloud-hosting.png", href: "/services#cloud-hosting" },
-  { label: "Data Centre", src: "/icons/data-centre.png", href: "/services#data-centre" },
-  { label: "File Server", src: "/icons/file-server.png", href: "/services#cloud-hosting" },
-  { label: "Remote Desktop", src: "/icons/remote-desktop.png", href: "/services#cloud-hosting" },
-  { label: "Web Hosting", src: "/icons/web-hosting.png", href: "/services#cloud-hosting" },
-  { label: "Email", src: "/icons/email.png", href: "/services#managed-it" },
-  { label: "Hosted Email", src: "/icons/email-hosted.png", href: "/services#managed-it" },
-  { label: "Sophos", src: "/icons/security.png", href: "/services#sophos" },
-  { label: "Connectivity", src: "/icons/faster-internet.png", href: "/services#connectivity" },
-  { label: "WAN", src: "/icons/wan.png", href: "/services#connectivity" },
-  { label: "VoIP", src: "/icons/voip.png", href: "/services#communications" },
-  { label: "Backup", src: "/icons/small-data-centre.png", href: "/services#backup-dr" },
+  { label: "Cloud & Hosting", src: "/icons/figma/database.svg", href: "/services#cloud-hosting" },
+  { label: "Data Centre", src: "/icons/figma/server.svg", href: "/services#data-centre" },
+  { label: "File Server", src: "/icons/figma/database.svg", href: "/services#cloud-hosting" },
+  { label: "Remote Desktop", src: "/icons/figma/monitor.svg", href: "/services#cloud-hosting" },
+  { label: "Web Hosting", src: "/icons/figma/globe.svg", href: "/services#cloud-hosting" },
+  { label: "Email", src: "/icons/figma/mail.svg", href: "/services#managed-it" },
+  { label: "Hosted Email", src: "/icons/figma/circle-x.svg", href: "/services#managed-it" },
+  { label: "Sophos", src: "/icons/figma/shield.svg", href: "/services#sophos" },
+  { label: "Connectivity", src: "/icons/figma/wifi.svg", href: "/services#connectivity" },
+  { label: "WAN", src: "/icons/figma/network.svg", href: "/services#connectivity" },
+  { label: "VoIP", src: "/icons/figma/phone.svg", href: "/services#communications" },
+  { label: "Backup", src: "/icons/figma/backup.svg", href: "/services#backup-dr" },
 ] as const;
 
 export type Insight = {
@@ -147,28 +147,33 @@ export const audiences = [
 export const homePillars = [
   {
     title: "Your IT team, without the overhead",
-    body: "Keep your people productive with IT support, Microsoft 365, device and network management handled by one local team — from everyday issues through to longer-term technology planning.",
-    image: "/images/nakicloud-desk.jpg",
-    alt: "OurCloud technology workspace",
+    body: "Keep your people productive and your business secure. We handle complete IT support, Microsoft 365 administration, device deployment, and secure network management — acting as your fully outsourced technology team.",
+    image: "/images/figma/pillar-it.png",
+    alt: "OurCloud managed IT workspace",
     href: "/services#managed-it",
     cta: "Explore Managed IT",
+    reverse: false,
+    goldWord: null as string | null,
   },
   {
     title: "Infrastructure you can rely on, right here in New Zealand",
-    body: "Move critical systems into a professionally managed environment backed by OurCloud’s own New Zealand data centre — private cloud, hosting, storage, backup and recovery without running the racks yourself.",
-    image: "/images/data-centre.jpg",
+    body: "Move your critical servers and applications into a professionally managed environment. Backed by OurCloud's wholly NZ-owned and operated data centre infrastructure, you get robust security, redundancy, and local support.",
+    image: "/images/figma/pillar-dc.png",
     alt: "OurCloud New Zealand data centre server racks",
     href: "/services#data-centre",
     cta: "Explore our Data Centre",
     reverse: true,
+    goldWord: "New Zealand",
   },
   {
     title: "Sophos protection for your devices and network",
-    body: "OurCloud provides Sophos endpoint and network protection as part of your managed IT environment — so security tooling sits with the same team who support your systems day to day.",
-    image: "/images/switches-detail.jpg",
-    alt: "Managed network infrastructure",
+    body: "As a certified Sophos partner, we embed world-class endpoint and firewall security directly into your managed IT environment. Proactive threat hunting, anti-ransomware, and robust web filtering ensure your business data remains secure day and night.",
+    image: "/images/figma/pillar-sophos.png",
+    alt: "Network infrastructure with Sophos protection",
     href: "/services#sophos",
     cta: "Explore Sophos",
+    reverse: false,
+    goldWord: "Sophos",
   },
 ] as const;
 
@@ -191,7 +196,7 @@ export const services: Service[] = [
       "New Zealand-owned, local technical expertise, and the same partner who can also host, secure and connect your environment.",
     cta: "Explore Managed IT",
     ctaHref: "/start",
-    icon: "/icons/remote-desktop.png",
+    icon: "/icons/figma/monitor.svg",
   },
   {
     slug: "cloud-hosting",
@@ -210,7 +215,7 @@ export const services: Service[] = [
       "Cloud and hosting sit on OurCloud’s own NZ data centre foundation — not a disconnected third-party relationship.",
     cta: "Explore Cloud & Hosting",
     ctaHref: "/start",
-    icon: "/icons/cloud-hosting.png",
+    icon: "/icons/figma/database.svg",
   },
   {
     slug: "data-centre",
@@ -231,7 +236,7 @@ export const services: Service[] = [
       "Own NZ infrastructure, local people, and services designed around that platform — not a helpdesk bolted onto someone else’s racks.",
     cta: "Explore our Data Centre",
     ctaHref: "/start",
-    icon: "/icons/data-centre.png",
+    icon: "/icons/figma/server.svg",
   },
   {
     slug: "sophos",
@@ -248,7 +253,7 @@ export const services: Service[] = [
       "Sophos sits with your managed IT and infrastructure under one New Zealand partner — not a separate security vendor bolted on the side.",
     cta: "Explore Sophos",
     ctaHref: "/start",
-    icon: "/icons/security.png",
+    icon: "/icons/figma/shield.svg",
   },
   {
     slug: "backup-dr",
@@ -267,7 +272,7 @@ export const services: Service[] = [
       "Recovery planning connected to the same infrastructure and support team that runs your environment day to day.",
     cta: "Talk to an expert",
     ctaHref: "/start",
-    icon: "/icons/small-data-centre.png",
+    icon: "/icons/figma/backup.svg",
   },
   {
     slug: "connectivity",
@@ -285,7 +290,7 @@ export const services: Service[] = [
       "Connectivity that works with your wider OurCloud environment — cloud, communications and support in one relationship.",
     cta: "Talk to OurCloud",
     ctaHref: "/start",
-    icon: "/icons/faster-internet.png",
+    icon: "/icons/figma/wifi.svg",
   },
   {
     slug: "communications",
@@ -296,7 +301,7 @@ export const services: Service[] = [
     whyUs: "Voice that sits with your IT, connectivity and support under one New Zealand partner.",
     cta: "Talk to OurCloud",
     ctaHref: "/start",
-    icon: "/icons/voip.png",
+    icon: "/icons/figma/phone.svg",
   },
   {
     slug: "consulting",
@@ -315,7 +320,7 @@ export const services: Service[] = [
       "Advice from a team that also runs infrastructure, cloud, Sophos and support — strategy connected to delivery.",
     cta: "Book a consultation",
     ctaHref: "/start",
-    icon: "/icons/web-hosting.png",
+    icon: "/icons/figma/globe.svg",
   },
 ];
 
@@ -333,9 +338,8 @@ export const cases: CaseStudy[] = [
   {
     slug: "hughson",
     name: "Hughson & Associates",
-    headline: "Critical systems hosted locally — the team kept working from anywhere.",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
+    headline: "Cloud migration and secure remote desktop solution for seamless professional services.",
+    image: "/images/figma/case-hughson.png",
     summary:
       "A New Plymouth professional practice moved server hosting into OurCloud’s data centre so the firm no longer had to maintain office hardware, while keeping daily backups and security in a managed environment.",
     tags: ["Cloud & Hosting", "Data Centre", "Backup", "Managed IT"],
@@ -348,9 +352,9 @@ export const cases: CaseStudy[] = [
   {
     slug: "pihms",
     name: "PIHMS",
-    headline: "A clearer IT foundation so staff can focus on teaching and operations.",
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80",
+    headline:
+      "Deploying high-speed campus connectivity and hosted mail services for New Zealand's premier hospitality school.",
+    image: "/images/figma/case-pihms.png",
     summary:
       "Pacific International Hotel Management School worked with OurCloud on advice and delivery that improved the campus technology environment and day-to-day productivity for staff and management.",
     tags: ["Managed IT", "Consulting", "Infrastructure"],
@@ -363,9 +367,9 @@ export const cases: CaseStudy[] = [
   {
     slug: "chamber",
     name: "Taranaki Chamber of Commerce",
-    headline: "Complete solutions with follow-through — not another disconnected vendor.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+    headline:
+      "Ongoing managed IT support, telephony, and security management keeping local commerce connected.",
+    image: "/images/figma/case-chamber.png",
     summary:
       "The Chamber needed an IT partner that understood membership-organisation challenges and delivered practical solutions, including simplifying the online entry process for the TSB Business Excellence Awards.",
     tags: ["Managed IT", "Consulting", "Connectivity"],
@@ -378,9 +382,9 @@ export const cases: CaseStudy[] = [
   {
     slug: "hive",
     name: "The Hive",
-    headline: "Backups, protection and support on one relationship — explained without jargon.",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+    headline:
+      "Failsafe network infrastructure and backup solutions for a collaborative, high-energy modern workspace.",
+    image: "/images/figma/case-hive.png",
     summary:
       "A retail business wanted technology that matched how the shop actually runs: backups, antivirus and a team they could talk to, brought together on one monthly invoice.",
     tags: ["Managed IT", "Sophos", "Backup"],
@@ -396,22 +400,22 @@ export const stats = [
   {
     value: "150+",
     label: "businesses supported",
-    note: "Figure from existing OurCloud materials. [VERIFY NUMBER OF CUSTOMERS]",
+    note: "",
   },
   {
     value: "NZ",
     label: "owned and operated",
-    note: "New Zealand-owned technology, infrastructure and support",
+    note: "",
   },
   {
     value: "1",
     label: "technology partner",
-    note: "IT, cloud, Sophos, connectivity and infrastructure together",
+    note: "",
   },
   {
     value: "Own",
     label: "NZ data centre",
-    note: "Infrastructure hosted through OurCloud’s own platform. [ADD CURRENT DATA CENTRE SPECIFICATIONS]",
+    note: "",
   },
 ];
 

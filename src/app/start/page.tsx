@@ -21,11 +21,11 @@ export default function StartPage() {
 
   return (
     <>
-      <section className="pb-12 pt-[calc(7rem+4vw)] pad-x">
+      <section className="page-hero border-b border-[var(--line)]">
         <h1 className="display max-w-[16ch]">
           Let’s talk about your <span className="gold">IT.</span>
         </h1>
-        <p className="lede mt-6">
+        <p className="lede mt-6 max-w-[42ch]">
           Whether you are looking for a new IT partner, moving infrastructure to the cloud, adding Sophos protection, or simply need someone to take ownership of your technology, our team can help you work out where to start.
         </p>
       </section>
