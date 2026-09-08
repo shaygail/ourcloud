@@ -1,18 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type FormEvent } from "react";
-
-const verbs = ["host", "protect", "connect", "support", "advise"];
+import { useState, type FormEvent } from "react";
+import { phoneHref, phoneLabel } from "@/lib/data";
 
 export default function Footer() {
   const [sent, setSent] = useState(false);
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => setIndex((n) => (n + 1) % verbs.length), 2200);
-    return () => clearInterval(timer);
-  }, []);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -20,33 +13,28 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t border-[var(--line)] pb-8 pt-[clamp(4rem,10vw,7rem)] pad-x">
-      <h2 className="max-w-[14ch] text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.92] tracking-display">
-        Let’s{" "}
-        <span className="gold">
-          <span className="cycle">
-            {verbs.map((word, n) => (
-              <span key={word} className={n === index ? "on" : ""}>
-                {word}
-              </span>
-            ))}
-          </span>
-        </span>{" "}
-        your technology — together.
-      </h2>
-
-      <div className="mt-12 grid items-end gap-12 md:grid-cols-[1.4fr_0.8fr]">
-        <div className="flex flex-col gap-4">
-          <Link className="link-arrow mt-0" href="/start">
-            Talk to OurCloud <span className="arrows">→ →</span>
-          </Link>
-          <Link className="link-arrow mt-0" href="/services">
-            Explore our services <span className="arrows">→ →</span>
-          </Link>
+    <footer className="bg-[var(--bg-footer)]">
+      <div className="grid gap-12 border-b border-[var(--line)] px-[var(--pad)] py-[clamp(4rem,8vw,6.25rem)] md:grid-cols-2 md:gap-20">
+        <div>
+          <h2 className="max-w-[16ch] font-sans text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.2] tracking-tightish">
+            Let’s <span className="gold">connect</span> your technology — together.
+          </h2>
+          <div className="mt-10 flex flex-col gap-4 font-sans text-[1.125rem] font-bold">
+            <Link className="underline underline-offset-4" href="/start">
+              Talk to OurCloud <span className="arrows">→ →</span>
+            </Link>
+            <Link className="link-accent mt-0" href="/services">
+              Explore our services <span className="arrows">→ →</span>
+            </Link>
+          </div>
         </div>
-        <form className="flex max-w-[360px] border-b border-[var(--fg)]" onSubmit={onSubmit}>
+
+        <form
+          className="flex items-center gap-4 self-center border-b border-[var(--line)] py-4"
+          onSubmit={onSubmit}
+        >
           {sent ? (
-            <p className="py-3">You’re on the list.</p>
+            <p className="py-1 text-[var(--fg-soft)]">You’re on the list.</p>
           ) : (
             <>
               <input
@@ -54,9 +42,9 @@ export default function Footer() {
                 required
                 placeholder="OurCloud Insights to my inbox"
                 aria-label="Email address"
-                className="flex-1 border-0 bg-transparent py-3 outline-none"
+                className="flex-1 border-0 bg-transparent text-[1.125rem] text-[var(--fg)] outline-none placeholder:text-[var(--fg-soft)]"
               />
-              <button type="submit" aria-label="Subscribe" className="px-1 py-3 font-bold">
+              <button type="submit" aria-label="Subscribe" className="font-sans font-bold text-yellow">
                 → →
               </button>
             </>
@@ -64,9 +52,11 @@ export default function Footer() {
         </form>
       </div>
 
-      <div className="mt-16 flex flex-wrap justify-between gap-4 border-t border-[var(--line)] pt-5 text-[0.9rem] text-[var(--fg-soft)]">
-        <p>©{new Date().getFullYear()} OurCloud · New Zealand owned and operated</p>
-        <div className="flex gap-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 px-[var(--pad)] py-10 text-[0.875rem]">
+        <p className="text-[var(--fg-soft)]">
+          ©{new Date().getFullYear()} OurCloud · New Zealand owned and operated
+        </p>
+        <div className="flex items-center gap-8">
           <a
             href="https://www.linkedin.com/company/nakicloud-computing-limited"
             target="_blank"
@@ -74,7 +64,9 @@ export default function Footer() {
           >
             LinkedIn
           </a>
-          <a href="tel:0800687256">0800 OURCLOUD</a>
+          <a href={phoneHref} className="font-sans font-bold text-yellow">
+            {phoneLabel}
+          </a>
         </div>
       </div>
     </footer>

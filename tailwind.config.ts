@@ -10,22 +10,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        yellow: "#ffe01b",
-        ink: "#111318",
+        yellow: "#f5c518",
+        ink: "#111111",
+        surface: "#141414",
+        card: "#1c1c1e",
         paper: "#f2f1ee",
         fog: "#d8d6d1",
-        mute: "#7a7c84",
+        mute: "#8e8e93",
         char: "#2c313f",
       },
       fontFamily: {
-        sans: ["Satoshi", "Segoe UI", "sans-serif"],
+        sans: ["Sora", "Segoe UI", "sans-serif"],
+        body: ["Inter", "Segoe UI", "sans-serif"],
       },
       maxWidth: {
         site: "1320px",
       },
       letterSpacing: {
-        display: "-0.055em",
-        tightish: "-0.045em",
+        display: "-0.04em",
+        tightish: "-0.03em",
       },
       keyframes: {
         ken: {

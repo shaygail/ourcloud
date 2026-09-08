@@ -1,158 +1,127 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import {
   capabilityIcons,
   cases,
   clients,
-  heroSlides,
   homePillars,
   stats,
-  thriveImages,
-  thriveVerbs,
 } from "@/lib/data";
 
 export default function HomePage() {
-  const [slide, setSlide] = useState(0);
-  const [thrive, setThrive] = useState(0);
-  const current = heroSlides[slide];
-
-  useEffect(() => {
-    const a = setInterval(() => setSlide((n) => (n + 1) % heroSlides.length), 4200);
-    const b = setInterval(() => setThrive((n) => (n + 1) % thriveImages.length), 3200);
-    return () => {
-      clearInterval(a);
-      clearInterval(b);
-    };
-  }, []);
-
   return (
     <>
-      <section className="relative grid min-h-[100svh] items-end overflow-hidden text-[#f4f3ef]">
+      {/* Hero */}
+      <section className="relative flex min-h-[860px] flex-col justify-end overflow-hidden border-b border-[var(--line)] text-white">
         <div className="absolute inset-0">
-          {heroSlides.map((item, i) => (
-            <Image
-              key={item.image}
-              src={item.image}
-              alt=""
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className={`object-cover transition-opacity duration-700 ${
-                i === slide ? "opacity-100 animate-ken" : "opacity-0"
-              }`}
-            />
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60" />
+          <Image
+            src="/images/figma/hero.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/65" />
         </div>
-        <div className="relative z-10 max-w-[18ch] pb-[clamp(2.5rem,8vh,5.5rem)] pad-x">
-          <h1 className="display display-home">
-            Connecting{" "}
-            <span className="gold">
-              <span className="cycle">
-                {heroSlides.map((item, i) => (
-                  <span key={item.industry} className={i === slide ? "on" : ""}>
-                    {item.industry}
-                  </span>
-                ))}
-              </span>
-            </span>{" "}
-            with{" "}
-            <span className="gold">
-              <span className="cycle">
-                {heroSlides.map((item, i) => (
-                  <span key={item.audience} className={i === slide ? "on" : ""}>
-                    {item.audience}
-                  </span>
-                ))}
-              </span>
-            </span>
+        <div className="relative z-10 w-full px-[var(--pad)] pb-[clamp(4rem,10vh,7.5rem)] pt-40">
+          <h1 className="display display-home max-w-[18ch]">
+            Connecting <span className="gold">systems</span>
+            <br />
+            with <span className="gold">NZ</span> infrastructure.
           </h1>
-          <Link href={current.href} className="mt-6 inline-flex items-center gap-2 text-[1.05rem] font-medium">
-            {current.caption} <span className="arrows">→ →</span>
+          <Link
+            href="/services#data-centre"
+            className="mt-6 inline-flex font-sans text-[1.125rem] font-bold underline underline-offset-4"
+          >
+            Explore our Data Centre <span className="arrows">→ →</span>
           </Link>
         </div>
       </section>
 
-      <section className="relative grid min-h-[88vh] place-items-center overflow-hidden text-center text-[#f4f3ef]">
-        {thriveImages.map((src, i) => (
-          <Image
-            key={src}
-            src={src}
-            alt=""
-            fill
-            sizes="100vw"
-            className={`object-cover transition-opacity duration-700 ${i === thrive ? "opacity-100" : "opacity-0"}`}
-          />
-        ))}
-        <div className="absolute inset-0 bg-black/50" />
-        <p className="relative z-10 max-w-[16ch] text-[clamp(2.2rem,5.5vw,4.8rem)] font-bold leading-[1.05] tracking-tightish">
-          One technology partner for your business — we{" "}
-          <span className="gold">
-            <span className="cycle">
-              {thriveVerbs.map((word, i) => (
-                <span key={word} className={i === thrive % thriveVerbs.length ? "on" : ""}>
-                  {word}
-                </span>
-              ))}
-            </span>
-          </span>
-          .
+      {/* Tagline band */}
+      <section className="relative grid min-h-[480px] place-items-center overflow-hidden border-b border-[var(--line)] px-[var(--pad)] text-center text-white">
+        <Image
+          src="/images/figma/tagline.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <p className="relative z-10 max-w-[22ch] font-sans text-[clamp(1.75rem,3.5vw,2.375rem)] font-extrabold leading-[1.35]">
+          One technology partner for your business — we <span className="gold">host</span>.
         </p>
       </section>
 
-      <section className="section split">
-        <h2 className="h2">Your IT. One partner.</h2>
-        <div>
-          <p className="lede">
-            OurCloud brings IT support, cloud, infrastructure, Sophos, connectivity, backup and consulting into one relationship — so you are not managing a stack of disconnected technology providers.
-          </p>
-          <Link className="link-arrow" href="/about">
-            Why OurCloud <span className="arrows">→ →</span>
-          </Link>
+      {/* Your IT. One partner. */}
+      <section className="section border-b border-[var(--line)] bg-[var(--bg-secondary)]">
+        <div className="split">
+          <h2 className="h2">Your IT. One partner.</h2>
+          <div>
+            <p className="lede max-w-[48ch]">
+              OurCloud brings IT support, cloud, infrastructure, Sophos, connectivity, backup and
+              consulting into one relationship — so you are not managing a stack of disconnected
+              technology providers.
+            </p>
+            <Link className="link-accent" href="/about">
+              Why OurCloud →
+            </Link>
+          </div>
         </div>
       </section>
 
-      <div className="overflow-hidden border-y border-[var(--line)]">
-        <div className="flex w-max animate-marquee gap-14 whitespace-nowrap py-6 text-[clamp(1.4rem,3vw,2.2rem)] font-bold tracking-tightish">
-          {[...clients, ...clients].map((name, i) => (
-            <span key={`${name}-${i}`} className="opacity-55">
-              {name}
+      {/* Client marquee */}
+      <div className="overflow-hidden border-b border-[var(--line)] py-8">
+        <div className="flex w-max animate-marquee items-center gap-16 whitespace-nowrap">
+          {[...clients, ...clients, ...clients].map((name, i) => (
+            <span key={`${name}-${i}`} className="flex items-center gap-8">
+              <span className="font-sans text-[1.25rem] font-bold text-[var(--fg-soft)] opacity-80">
+                {name}
+              </span>
+              <Image src="/icons/figma/dot.svg" alt="" width={6} height={6} className="size-1.5" />
             </span>
           ))}
         </div>
       </div>
 
-      <section className="section split">
-        <h2 className="h2">More than a helpdesk</h2>
-        <div>
-          <p className="lede">
-            New Zealand-owned technology, infrastructure and support — all working together. From everyday IT through to data centre hosting, Sophos and consulting.
-          </p>
-          <Link className="link-arrow" href="/services">
-            Explore our services <span className="arrows">→ →</span>
-          </Link>
+      {/* More than a helpdesk */}
+      <section className="section border-b border-[var(--line)] bg-[var(--bg-secondary)]">
+        <div className="split">
+          <h2 className="h2">
+            More than a <span className="gold">helpdesk</span>
+          </h2>
+          <div>
+            <p className="lede max-w-[48ch]">
+              New Zealand-owned technology, infrastructure and support — all working together. From
+              everyday IT through to data centre hosting, Sophos and consulting.
+            </p>
+            <Link className="link-accent" href="/services">
+              Explore our services →
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="px-[var(--pad)] pb-[clamp(3rem,8vw,5rem)]">
-        <div className="grid grid-cols-3 gap-4 border-y border-[var(--line)] py-10 sm:grid-cols-4 md:grid-cols-6">
+      {/* Capability icon grid */}
+      <section className="border-b border-[var(--line)] px-[var(--pad)] py-[clamp(4rem,8vw,6.25rem)]">
+        <div className="grid grid-cols-3 gap-x-8 gap-y-16 sm:grid-cols-4 md:grid-cols-6">
           {capabilityIcons.map((item) => (
             <Link
-              key={item.src}
+              key={item.label}
               href={item.href}
-              className="group grid justify-items-center gap-2 text-center"
+              className="group grid justify-items-center gap-4 text-center"
             >
-              <Image
-                src={item.src}
-                alt=""
-                width={64}
-                height={64}
-                className="h-16 w-16 object-contain transition duration-300 group-hover:scale-105"
-              />
-              <span className="text-[0.72rem] font-medium tracking-tightish text-[var(--fg-soft)] group-hover:text-[var(--fg)]">
+              <span className="relative size-12 overflow-hidden">
+                <Image
+                  src={item.src}
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="size-10 object-contain"
+                />
+              </span>
+              <span className="font-sans text-[0.875rem] font-semibold tracking-tightish">
                 {item.label}
               </span>
             </Link>
@@ -160,75 +129,76 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Pillars */}
       {homePillars.map((pillar) => (
-        <Pillar
-          key={pillar.title}
-          title={pillar.title}
-          body={pillar.body}
-          image={pillar.image}
-          alt={pillar.alt}
-          href={pillar.href}
-          cta={pillar.cta}
-          reverse={"reverse" in pillar ? pillar.reverse : false}
-        />
+        <Pillar key={pillar.title} {...pillar} />
       ))}
 
-      <section className="section">
-        <div className="mb-10 flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <div>
-            <h2 className="h2">Customer trust</h2>
-            <p className="lede mt-4">
-              Businesses that need dependable technology support and infrastructure — from firms replacing an IT provider through to organisations with limited internal IT resources.
+      {/* Customer trust */}
+      <section className="section border-b border-[var(--line)] bg-[var(--bg-secondary)]">
+        <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div className="max-w-[640px]">
+            <h2 className="h2 max-w-none">Customer trust</h2>
+            <p className="lede mt-4 max-w-[42ch]">
+              We partner with local businesses that require dependable, fast, and secure technology
+              to power their daily operations.
             </p>
           </div>
-          <Link className="link-arrow mt-0" href="/work">
-            Explore our work <span className="arrows">→ →</span>
+          <Link className="link-arrow mt-0 shrink-0" href="/work">
+            Explore our work →
           </Link>
         </div>
-        <div className="grid auto-cols-[minmax(280px,32vw)] grid-flow-col gap-5 overflow-x-auto pb-4 snap-x">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cases.map((item) => (
-            <Link key={item.slug} href={`/work/${item.slug}`} className="snap-start">
-              <div className="relative mb-4 h-[42vh] overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt=""
-                  fill
-                  sizes="32vw"
-                  className="object-cover transition duration-700 hover:scale-105"
-                />
+            <Link
+              key={item.slug}
+              href={`/work/${item.slug}`}
+              className="overflow-hidden rounded-xl bg-card"
+            >
+              <div className="relative h-[200px]">
+                <Image src={item.image} alt="" fill sizes="25vw" className="object-cover" />
               </div>
-              <h3 className="text-[1.55rem] font-bold tracking-tightish">{item.name}</h3>
-              <p className="mt-1 text-[var(--fg-soft)]">{item.headline}</p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[0.88rem]">
-                {item.tags.map((tag) => (
-                  <span key={tag} className="border-b border-[var(--line)] pb-0.5">
-                    {tag} <span className="arrows">→ →</span>
-                  </span>
-                ))}
+              <div className="p-6">
+                <h3 className="font-sans text-[1.125rem] font-extrabold">{item.name}</h3>
+                <p className="mt-3 text-[0.875rem] leading-[1.55] text-[var(--fg-soft)]">
+                  {item.headline}
+                </p>
               </div>
             </Link>
           ))}
         </div>
       </section>
 
-      <div className="overflow-hidden bg-yellow text-ink text-[0.78rem] font-bold uppercase tracking-[0.18em]">
-        <div className="flex w-max animate-marquee-fast gap-14 whitespace-nowrap py-3">
-          {Array.from({ length: 10 }, (_, i) => (
-            <span key={i}>New Zealand owned and operated</span>
+      {/* NZ owned banner */}
+      <div className="overflow-hidden bg-yellow py-6 text-ink">
+        <div className="flex w-max animate-marquee-fast items-center gap-12 whitespace-nowrap">
+          {Array.from({ length: 8 }, (_, i) => (
+            <span key={i} className="flex items-center gap-12">
+              <span className="font-sans text-[1.5rem] font-extrabold uppercase tracking-tightish">
+                New Zealand owned and operated
+              </span>
+              <Image
+                src="/icons/figma/dot-dark.svg"
+                alt=""
+                width={8}
+                height={8}
+                className="size-2"
+              />
+            </span>
           ))}
         </div>
       </div>
 
-      <section className="section bg-ink text-[#f4f3ef]">
-        <h2 className="h2">Why businesses choose OurCloud</h2>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Stats */}
+      <section className="section border-b border-[var(--line)]">
+        <h2 className="h2 max-w-none">Why businesses choose OurCloud</h2>
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((item) => (
             <p key={item.label}>
-              <b className="block text-[clamp(3.2rem,7vw,6.2rem)] font-bold leading-none tracking-display text-yellow">
+              <b className="block font-sans text-[clamp(3rem,6vw,4rem)] font-extrabold leading-none tracking-display text-yellow">
                 {item.value}
               </b>
-              <span className="mt-3 block">{item.label}</span>
-              <small className="mt-2 block text-[#9ea2ab]">{item.note}</small>
+              <span className="mt-3 block font-semibold">{item.label}</span>
             </p>
           ))}
         </div>
@@ -245,6 +215,7 @@ function Pillar({
   href,
   cta,
   reverse = false,
+  goldWord = null,
 }: {
   title: string;
   body: string;
@@ -253,23 +224,38 @@ function Pillar({
   href: string;
   cta: string;
   reverse?: boolean;
+  goldWord?: string | null;
 }) {
+  const heading = goldWord ? highlightGold(title, goldWord) : title;
+
   return (
-    <article className="grid min-h-[78vh] md:grid-cols-2">
+    <article className="grid min-h-[680px] border-b border-[var(--line)] md:grid-cols-2">
       <div
-        className={`flex flex-col justify-end bg-[var(--bg)] p-[clamp(2.5rem,6vw,5rem)] ${
-          reverse ? "md:order-2" : ""
+        className={`flex flex-col justify-center gap-8 bg-[var(--bg)] px-[var(--pad)] py-[clamp(3rem,6vw,6.25rem)] ${
+          reverse ? "md:order-2 md:pl-[clamp(2rem,5vw,5rem)] md:pr-[var(--pad)]" : "md:pr-[clamp(2rem,5vw,5rem)]"
         }`}
       >
-        <h2 className="h2 max-w-[14ch]">{title}</h2>
-        <p className="lede mt-4">{body}</p>
-        <Link className="link-arrow" href={href}>
-          {cta} <span className="arrows">→ →</span>
+        <h2 className="h2 max-w-[16ch]">{heading}</h2>
+        <p className="lede max-w-[42ch]">{body}</p>
+        <Link className="link-accent mt-0" href={href}>
+          {cta} {cta.includes("Data Centre") ? <span className="arrows">→ →</span> : "→"}
         </Link>
       </div>
-      <div className="relative min-h-[52vh]">
+      <div className={`relative min-h-[52vh] ${reverse ? "md:order-1" : ""}`}>
         <Image src={image} alt={alt} fill sizes="50vw" className="object-cover" />
       </div>
     </article>
+  );
+}
+
+function highlightGold(title: string, goldWord: string) {
+  const index = title.indexOf(goldWord);
+  if (index < 0) return title;
+  return (
+    <>
+      {title.slice(0, index)}
+      <span className="gold">{goldWord}</span>
+      {title.slice(index + goldWord.length)}
+    </>
   );
 }
