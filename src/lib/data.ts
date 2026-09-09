@@ -33,18 +33,18 @@ export type Service = {
 
 /** Brand capability icons (yellow-on-black) for services and overview strips. */
 export const capabilityIcons = [
-  { label: "Cloud & Hosting", src: "/icons/cloud-hosting.png", href: "/services#cloud-hosting" },
-  { label: "Data Centre", src: "/icons/data-centre.png", href: "/services#data-centre" },
-  { label: "File Server", src: "/icons/file-server.png", href: "/services#cloud-hosting" },
-  { label: "Remote Desktop", src: "/icons/remote-desktop.png", href: "/services#cloud-hosting" },
-  { label: "Web Hosting", src: "/icons/web-hosting.png", href: "/services#cloud-hosting" },
-  { label: "Email", src: "/icons/email.png", href: "/services#managed-it" },
-  { label: "Hosted Email", src: "/icons/email-hosted.png", href: "/services#managed-it" },
-  { label: "Sophos", src: "/icons/security.png", href: "/services#sophos" },
-  { label: "Connectivity", src: "/icons/faster-internet.png", href: "/services#connectivity" },
-  { label: "WAN", src: "/icons/wan.png", href: "/services#connectivity" },
-  { label: "VoIP", src: "/icons/voip.png", href: "/services#communications" },
-  { label: "Backup", src: "/icons/small-data-centre.png", href: "/services#backup-dr" },
+  { label: "Cloud & Hosting", src: "/icons/line/cloud-hosting.svg", href: "/services/cloud-hosting" },
+  { label: "Data Centre", src: "/icons/line/data-centre.svg", href: "/services/data-centre" },
+  { label: "File Server", src: "/icons/line/file-server.svg", href: "/services/cloud-hosting" },
+  { label: "Remote Desktop", src: "/icons/line/remote-desktop.svg", href: "/services/cloud-hosting" },
+  { label: "Web Hosting", src: "/icons/line/web-hosting.svg", href: "/services/cloud-hosting" },
+  { label: "Email", src: "/icons/line/email.svg", href: "/services/managed-it" },
+  { label: "Hosted Email", src: "/icons/line/hosted-email.svg", href: "/services/managed-it" },
+  { label: "Sophos", src: "/icons/line/sophos.svg", href: "/services/sophos" },
+  { label: "Connectivity", src: "/icons/line/connectivity.svg", href: "/services" },
+  { label: "WAN", src: "/icons/line/wan.svg", href: "/services" },
+  { label: "VoIP", src: "/icons/line/voip.svg", href: "/services" },
+  { label: "Backup", src: "/icons/line/backup.svg", href: "/services" },
 ] as const;
 
 export type Insight = {
@@ -85,14 +85,14 @@ export const heroSlides: HeroSlide[] = [
     industry: "systems",
     audience: "NZ infrastructure.",
     caption: "Explore our Data Centre",
-    href: "/services#data-centre",
+    href: "/services/data-centre",
   },
   {
     image: "/images/speedster.jpg",
     industry: "teams",
     audience: "fast connectivity.",
     caption: "Explore Connectivity",
-    href: "/services#connectivity",
+    href: "/services",
   },
   {
     image: "/images/nakicloud-tablet.jpg",
@@ -113,7 +113,7 @@ export const heroSlides: HeroSlide[] = [
     industry: "growing firms",
     audience: "technology strategy.",
     caption: "Explore Consulting",
-    href: "/services#consulting",
+    href: "/services",
   },
 ];
 
@@ -129,10 +129,10 @@ export const thriveVerbs = ["host", "protect", "connect", "support", "advise"] a
 
 /** Verified customer references only. */
 export const clients = [
-  "Hughson & Associates",
-  "PIHMS",
   "Taranaki Chamber of Commerce",
   "The Hive",
+  "Hughson & Associates",
+  "PIHMS",
 ];
 
 export const audiences = [
@@ -150,7 +150,7 @@ export const homePillars = [
     body: "Keep your people productive with IT support, Microsoft 365, device and network management handled by one local team — from everyday issues through to longer-term technology planning.",
     image: "/images/nakicloud-desk.jpg",
     alt: "OurCloud technology workspace",
-    href: "/services#managed-it",
+    href: "/services/managed-it",
     cta: "Explore Managed IT",
   },
   {
@@ -158,7 +158,7 @@ export const homePillars = [
     body: "Move critical systems into a professionally managed environment backed by OurCloud’s own New Zealand data centre — private cloud, hosting, storage, backup and recovery without running the racks yourself.",
     image: "/images/data-centre.jpg",
     alt: "OurCloud New Zealand data centre server racks",
-    href: "/services#data-centre",
+    href: "/services/data-centre",
     cta: "Explore our Data Centre",
     reverse: true,
   },
@@ -167,7 +167,7 @@ export const homePillars = [
     body: "OurCloud provides Sophos endpoint and network protection as part of your managed IT environment — so security tooling sits with the same team who support your systems day to day.",
     image: "/images/switches-detail.jpg",
     alt: "Managed network infrastructure",
-    href: "/services#sophos",
+    href: "/services/sophos",
     cta: "Explore Sophos",
   },
 ] as const;
